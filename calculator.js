@@ -8,7 +8,7 @@ let lastButtonPressed;
 const add = (x) => (y) => x + y;
 const subtract = (x) => (y) => x - y;
 const multiply = (x) => (y) => x * y;
-const divide = (x) => (y) => (y === 0 ? "Nope..." : x / y)
+const divide = (x) => (y) => (y === 0 ? "Nope..." : x / y);
 let solution;
 
 const ops = {
@@ -21,27 +21,27 @@ const ops = {
 let displayVal = "";
 
 function updateDisplay(input) {
-  if (!input) return displayVal
+  if (!input) return displayVal;
 
   const hasDecimals = () => {
     return String(input) === "." && hasDecimal(displayVal.split(" ").slice(-1)[0]) >= 1;
   };
     
   if (matchOperator(String(input)) && displayVal !== "") {
-    displayVal += ` ${input} `
+    displayVal += ` ${input} `;
   } else if (hasDecimals()) {
-    return displayVal
+    return displayVal;
   } else {
-    displayVal += `${input}`
+    displayVal += `${input}`;
   }
 
   display.textContent = displayVal;
 
-  return displayVal
+  return displayVal;
 }
 
 function hasDecimal(str) {
-  return str.includes(".")
+  return str.includes(".");
 }
 
 function matchOperator(input) {
